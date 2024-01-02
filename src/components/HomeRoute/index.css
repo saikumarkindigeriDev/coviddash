@@ -1,0 +1,15 @@
+.state-result-heading {
+  display: flex;
+}
+
+.state-ul-holder {
+  display: flex;
+}
+
+.card-container-row {
+  display: flex;
+}
+
+.covid-home-container {
+  background-color: #161625;
+}

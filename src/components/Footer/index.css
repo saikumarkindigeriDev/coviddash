@@ -1,0 +1,39 @@
+.app-name {
+  font-family: 'Bree Serif';
+  font-weight: 400;
+
+  color: #f8fafc;
+  width: 156px;
+  height: 32px;
+}
+
+.blue-text {
+  color: #3b82f6;
+}
+
+.description {
+  width: 348px;
+  height: 24px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.logos-container {
+  display: flex;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #161625;
+}
+
+.logo {
+  width: 42px;
+  height: 46px;
+  padding-right: 30px;
+}

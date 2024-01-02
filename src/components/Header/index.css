@@ -1,0 +1,88 @@
+.header-list {
+  height: 80px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  background-color: #1e1e30;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
+  padding-right: 50px;
+}
+.link-logo {
+  height: 24px;
+  width: 130px;
+  padding-left: 150px;
+}
+
+.link-logoo {
+  padding-right: 30px;
+}
+
+.app-name {
+  font-family: 'Bree Serif';
+  font-weight: 400;
+
+  color: #f8fafc;
+}
+
+.blue-text {
+  color: #3b82f6;
+}
+
+.link-name {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  background-color: transparent;
+  color: #94a3b8;
+  border: none;
+}
+
+.highlight {
+  color: #f8fafc;
+}
+
+.menu-button {
+  display: none;
+}
+
+@media screen and (max-width: 556px) {
+  .header-list {
+    width: 360px;
+    height: 56px;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .link-item {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 16px;
+    background-color: transparent;
+    color: #94a3b8;
+    border: none;
+    width: 42px;
+    height: 26px;
+    padding-right: 10px;
+  }
+
+  .menu-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .items-container {
+    display: flex;
+  }
+}
