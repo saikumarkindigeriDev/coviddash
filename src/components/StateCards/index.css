@@ -1,0 +1,44 @@
+.background-color {
+}
+
+.StateCard-background {
+  background-color: transparent;
+
+  width: 264px;
+  height: 232px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-paragraph-heading {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Roboto';
+}
+
+.Confirmed {
+  color: #ff073a;
+}
+
+.Active {
+  color: #007bff;
+}
+
+.Recovered {
+  color: #28a745;
+}
+
+.Deceased {
+  color: #6c757d;
+}
+
+.stateCards-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.background-color {
+}

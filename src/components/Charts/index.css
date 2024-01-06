@@ -1,0 +1,76 @@
+.Charts-graph-heading {
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #cbd5e1;
+}
+
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.charts-graph-red {
+  background-color: #331427;
+  width: 1146px;
+  height: 328px;
+
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.charts-graph-blue {
+  background-color: #132240;
+  width: 1146px;
+  height: 328px;
+
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.charts-graph-green {
+  background-color: #182829;
+  width: 1146px;
+  height: 328px;
+
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.charts-graph-gray {
+  background-color: #1c1c2b;
+  width: 1146px;
+  height: 328px;
+
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.charts-graph-vi {
+  background-color: #230f41;
+  width: 1146px;
+  height: 328px;
+
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}

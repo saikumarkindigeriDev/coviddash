@@ -20,8 +20,7 @@ class StateCards extends Component {
     const districtRecovered = totalStateCards.recovered
     const districtDeceased = totalStateCards.deceased
     const districtActive =
-      districtConfirmed - districtRecovered - districtDeceased
-
+      districtConfirmed - (districtRecovered + districtDeceased)
     const confirmedCard = {
       name: 'Confirmed',
       logo:
@@ -72,7 +71,7 @@ class StateCards extends Component {
       <>
         <ul className="stateCards-container">
           <li
-            className={`stateCard-background ${confirmedCard.name} ${isDistrictCard}`}
+            className={`StateCard-background ${confirmedCard.name} ${isDistrictCard}`}
             tabIndex="-1"
             key={confirmedCard.name}
             value={confirmedCard.name}
@@ -89,7 +88,7 @@ class StateCards extends Component {
             </div>
           </li>
           <li
-            className={`StateCard-background ${activeCard.name}`}
+            className={`StateCard-background ${activeCard.name} ${isDistrictCard}`}
             tabIndex="-1"
             key={activeCard.name}
             value={activeCard.name}
@@ -107,7 +106,7 @@ class StateCards extends Component {
           </li>
 
           <li
-            className={`StateCard-background ${recoveredCard.name}`}
+            className={`StateCard-background ${recoveredCard.name} ${isDistrictCard}`}
             tabIndex="-1"
             key={recoveredCard.name}
             value={recoveredCard.name}
@@ -127,7 +126,7 @@ class StateCards extends Component {
           </li>
 
           <li
-            className={`StateCard-background ${deceasedCard.name}`}
+            className={`StateCard-background ${deceasedCard.name} ${isDistrictCard}`}
             tabIndex="-1"
             key={deceasedCard.name}
             value={deceasedCard.name}

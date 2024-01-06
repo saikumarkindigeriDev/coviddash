@@ -8,6 +8,7 @@ class About extends Component {
   state = {
     isLoading: true,
     aboutData: [],
+    facts: [],
   }
 
   componentDidMount() {
@@ -20,7 +21,9 @@ class About extends Component {
     if (response.ok) {
       const data = await response.json()
       const aboutDataa = data.faq
-      this.setState({isLoading: false, aboutData: aboutDataa})
+      const factoidss = data.factoids
+      console.log(data)
+      this.setState({isLoading: false, aboutData: aboutDataa, facts: factoidss})
     }
   }
 
@@ -29,14 +32,34 @@ class About extends Component {
 
     return (
       <div>
-        <h1>About</h1>
-        <p> {`Last Update on `}</p>
-        <p>COVID-19 vaccines be ready for distribution</p>
+        <div className="about-container">
+          <h1 className="heading">About</h1>
+          <p className="update-description"> {`Last Update on `}</p>
+          <p className="vaccines-description">
+            COVID-19 vaccines be ready for distribution
+          </p>
+        </div>
         <ul className="questions-container">
           {aboutData.map(eachData => (
             <li className="question">
-              <h1>{eachData.question}</h1>
-              <h3>{eachData.answer}</h3>
+              <h1 className="question-heading">{eachData.question}</h1>
+              <h3 className="question-answer">{eachData.answer}</h3>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  renderFacts = () => {
+    const {facts} = this.state
+    return (
+      <div className="facts-container">
+        <h1 className="facts-heading">Facts</h1>
+        <ul className="facts-list">
+          {facts.map(each => (
+            <li className="fact">
+              <p>{each.banner}</p>
             </li>
           ))}
         </ul>
@@ -48,16 +71,24 @@ class About extends Component {
     const {isLoading} = this.state
 
     return (
-      <div>
+      <div className="container">
         <Header />
 
-        {isLoading ? (
-          <div className="loading-class" data-testid="timelinesDataLoader">
-            <Loader type="Oval" color="#0A4FA0" height={50} width={50} />
-          </div>
-        ) : (
-          <>{this.renderAboutData()}</>
-        )}
+        <div className="loader-container">
+          {isLoading ? (
+            <div className="loading-class" data-testid="timelinesDataLoader">
+              <Loader type="Oval" color="#0A4FA0" height={50} width={50} />
+            </div>
+          ) : (
+            <>
+              <div className="background-container">
+                {this.renderAboutData()}
+                {this.renderFacts()}
+              </div>
+            </>
+          )}
+        </div>
+
         <Footer />
       </div>
     )

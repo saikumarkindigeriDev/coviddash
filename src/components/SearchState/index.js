@@ -6,9 +6,16 @@ const SearchState = props => {
 
   return (
     <Link to={`/state/${stateCode}`}>
-      <li>
-        <p>{stateName}</p>
-        <h1>{stateCode}</h1>
+      <li className="search-list-container">
+        <p className="stateName">{stateName}</p>
+        <div className="code-icon-container">
+          <h1 className="stateCode">{stateCode}</h1>
+          <img
+            src="https://res.cloudinary.com/dyjmh036b/image/upload/v1704361023/Line_jwidjb.svg"
+            alt="arrow-icon"
+            className="arrow-icon"
+          />
+        </div>
       </li>
     </Link>
   )

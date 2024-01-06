@@ -2,6 +2,98 @@
   list-style-type: none;
 }
 
+.container {
+  height: 100vh;
+  background-color: #161625;
+}
+.loading-class {
+  text-align: center;
+}
+
+.loader-container {
+  background-color: #161625;
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+}
+
 .question {
   list-style: none;
+}
+
+.background-container {
+  background-color: #161625;
+}
+
+.heading {
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+
+  color: white;
+}
+.facts-heading {
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+
+  color: white;
+}
+
+.update-description {
+  color: #94a3b8;
+}
+
+.vaccines-description {
+  color: #e2e8f0;
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px; /* 150% */
+}
+
+.question-heading {
+  color: #94a3b8;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 200% */
+}
+
+.question-answer {
+  color: #007bff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 200% */
+}
+
+.facts-list {
+  list-style-type: none;
+}
+
+.fact {
+  color: red;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Roboto';
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.facts-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
 }

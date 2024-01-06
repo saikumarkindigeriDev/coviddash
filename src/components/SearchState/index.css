@@ -1,1 +1,37 @@
+.stateName {
+  color: #64748b;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
 
+.stateCode {
+  color: #facc15;
+  font-size: 16px;
+}
+
+.code-icon-container {
+  background-color: #1cd4d429;
+  width: 76px;
+  height: 32px;
+  padding: 4px, 6px, 4px, 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+}
+
+.arrow-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.search-list-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 800px;
+}

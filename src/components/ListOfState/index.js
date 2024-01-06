@@ -18,7 +18,7 @@ const ListOfState = props => {
     listOfConfirmed - listOfRecovered - listOfDeceased - listOfOther
 
   return (
-    <li className="list-state-class">
+    <li className="state-result-heading">
       <Link to={`/state/${stateCode}`} className="link-class">
         <p className="state-name-class">{stateName}</p>
       </Link>

@@ -36,6 +36,7 @@ class Charts extends Component {
     const response = await fetch(apiUrl, options)
     if (response.ok) {
       const data = await response.json()
+      console.log(data)
 
       const dataObject = Object.keys(data[districtCode].dates)
       const dataState = dataObject.map(eachDate => ({
@@ -49,6 +50,7 @@ class Charts extends Component {
           (data[districtCode].dates[eachDate].total.deceased +
             data[districtCode].dates[eachDate].total.recovered),
       }))
+      console.log(dataState)
 
       const dataCharts = dataObject.map(eachDate => ({
         eachDate,
@@ -61,6 +63,7 @@ class Charts extends Component {
           (data[districtCode].dates[eachDate].total.deceased +
             data[districtCode].dates[eachDate].total.recovered),
       }))
+      console.log(dataCharts)
 
       this.setState({
         chartsList: dataState,
@@ -92,7 +95,7 @@ class Charts extends Component {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dateKey={caseList} stroke={color} />
+          <Line type="monotone" dataKey={caseList} stroke={color} />
         </LineChart>
       </div>
     )
@@ -100,7 +103,7 @@ class Charts extends Component {
 
   graphCharts = () => (
     <div>
-      <h1 className="Charts-graph-heading">Spread Trends</h1>
+      <h1 className="Charts-graph-heading">Daily Spread Trends</h1>
       <div data-testid="lineChartsContainer" className="lineChart-graph">
         <div className="charts-graph-list-margin charts-graph-red">
           {this.graphList('confirmed', '#FF073A')}
@@ -128,10 +131,11 @@ class Charts extends Component {
     console.log(districtsChart)
     const barChart = districtsChart.toLowerCase()
     const maxBarChart = chartsList.slice(Math.max(chartsList.length - 10, 0))
+    console.log(maxBarChart)
 
     let barColor = '#9A0E31'
 
-    if (barChart === 'Confirmed') {
+    if (barChart === 'confirmed') {
       barColor = '#9A0E31'
     } else if (barChart === 'active') {
       barColor = '#0A4FA0'
@@ -177,6 +181,7 @@ class Charts extends Component {
                   }}
                   dy={10}
                 />
+
                 <Tooltip />
 
                 <Legend />

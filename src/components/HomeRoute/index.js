@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
-import {BsSearch} from 'react-icons/bs'
+
 import {FcGenericSortingAsc, FcGenericSortingDesc} from 'react-icons/fc'
 import SearchState from '../SearchState'
 import ListOfState from '../ListOfState'
@@ -217,6 +217,8 @@ class HomeRoute extends Component {
           .filter(stateItem => stateItem === eachItem.state_code)
           .map(each => data[each].meta.population),
       }))
+      console.log(statesList)
+      console.log(listOfCovidTableStates)
       this.setState({
         totalConfirmed: confirmedCase,
         totalRecovered: recoveredCase,
@@ -275,36 +277,38 @@ class HomeRoute extends Component {
 
     return (
       <div className="state-table" data-testid="stateWiseCovidDataTable">
-        <div className="state-result-heading">
-          <div className="state-ul-holder">
-            <p className="home-table-state-paragraph">States/UT</p>
-            {/* eslint-disable-next-line */}
-            <button
-              type="button"
-              className="icon-button"
-              onClick={this.ascSortClicked}
-              data-testid="ascending-icon"
-            >
-              <FcGenericSortingAsc className="ascending-icon" />
-            </button>
-            {/* eslint-disable-next-line */}
-            <button
-              type="button"
-              className="icon-button"
-              onClick={this.decSortClicked}
-              data-testid="descending-icon"
-            >
-              <FcGenericSortingDesc className="ascending-icon" />
-            </button>
-          </div>
-          <p className="general-column-title">Confirmed </p>
-          <p className="general-column-title">Active </p>
-          <p className="general-column-title">Recovered </p>
-          <p className="general-column-title">Deceased </p>
-          <p className="general-column-title">Population</p>
-        </div>
-
         <ul className="state-result-table">
+          <li className="state-result-heading">
+            <div className="state-ul-holder">
+              <p className="home-table-state-paragraph">States/UT</p>
+              {/* eslint-disable-next-line */}
+              <button
+                type="button"
+                className="icon-button"
+                onClick={this.ascSortClicked}
+                data-testid="ascending-icon"
+              >
+                <FcGenericSortingAsc className="ascending-icon" />
+              </button>
+              {/* eslint-disable-next-line */}
+              <button
+                type="button"
+                className="icon-button"
+                onClick={this.decSortClicked}
+                data-testid="descending-icon"
+              >
+                <FcGenericSortingDesc className="ascending-icon" />
+              </button>
+            </div>
+
+            <p className="general-column-title">Confirmed </p>
+            <p className="general-column-title">Active </p>
+            <p className="general-column-title">Recovered </p>
+            <p className="general-column-title">Deceased </p>
+            <p className="general-column-title">Population</p>
+          </li>
+          <hr className="horizontal" />
+
           {listOfCovidStates.map(eachItem => (
             <ListOfState key={eachItem.stateCode} stateList={eachItem} />
           ))}
@@ -342,40 +346,40 @@ class HomeRoute extends Component {
       <>
         <div className="card-container-row">
           <div className="card-list" data-testid="countryWideConfirmedCases">
-            <p className="home-paragraph-heading red">Confirmed</p>
+            <p className="home-paragraph-heading-red">Confirmed</p>
             <img
               src="https://res.cloudinary.com/dyjmh036b/image/upload/v1700643751/check-mark_1confirmed_n8cslh.svg"
               alt="country wide confirmed cases pic"
               className="home-cards-logo"
             />
-            <p className="home-paragraph-heading red">{totalConfirmed}</p>
+            <p className="home-paragraph-heading-red">{totalConfirmed}</p>
           </div>
           <div className="card-list" data-testid="countryWideActiveCases">
-            <p className="home-paragraph-heading blue">Active</p>
+            <p className="home-paragraph-heading-blue">Active</p>
             <img
               src="https://res.cloudinary.com/dyjmh036b/image/upload/v1700643849/protection_1s_zldqg9.svg"
               alt="country wide active cases pic"
               className="home-cards-logo"
             />
-            <p className="home-paragraph-heading blue">{totalActive}</p>
+            <p className="home-paragraph-heading-blue">{totalActive}</p>
           </div>
           <div className="card-list" data-testid="countryWideRecoveredCases">
-            <p className="home-paragraph-heading green">Recovered</p>
+            <p className="home-paragraph-heading-green">Recovered</p>
             <img
               src="https://res.cloudinary.com/dyjmh036b/image/upload/v1700643942/recovered_11_zqftl7.svg"
               alt="country wide recovered cases pic"
               className="home-cards-logo"
             />
-            <p className="home-paragraph-heading green">{totalRecovered}</p>
+            <p className="home-paragraph-heading-green">{totalRecovered}</p>
           </div>
           <div className="card-list" data-testid="countryWideDeceasedCases">
-            <p className="home-paragraph-heading gray">Deceased</p>
+            <p className="home-paragraph-heading-grey">Deceased</p>
             <img
               src="https://res.cloudinary.com/dyjmh036b/image/upload/v1700644048/breathing_11_vgd8y1.svg"
               alt="country wide deceased cases pic"
               className="home-cards-logo"
             />
-            <p className="home-paragraph-heading gray">{totalDeceased}</p>
+            <p className="home-paragraph-heading-grey">{totalDeceased}</p>
           </div>
         </div>
       </>
@@ -398,7 +402,15 @@ class HomeRoute extends Component {
             <div className="home-search">
               <div className="home-search-container">
                 {this.loadingFalse}
-                <BsSearch className="search-icon" testid="searchIcon" />
+
+                <div className="icon-container">
+                  <img
+                    src="https://res.cloudinary.com/dyjmh036b/image/upload/v1704291196/search_v9oc0r.svg"
+                    className="search-icon"
+                    alt="searchIcon"
+                  />
+                </div>
+
                 <input
                   type="search"
                   className="search-input"
@@ -406,13 +418,15 @@ class HomeRoute extends Component {
                   onChange={this.searchInputList}
                 />
               </div>
-              {searchInput.length > 0 ? searchResult : ''}
+              <div className="listOfStatesContainer">
+                {searchInput.length > 0 ? searchResult : ''}
+              </div>
             </div>
 
             {searchInput.length > 0 ? (
               ''
             ) : (
-              <div>
+              <div className="covid-lists">
                 {this.listOfCovidCards()}
                 {this.listOfStateTable()}
               </div>

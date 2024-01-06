@@ -1,0 +1,14 @@
+.topDistricts-paragraph {
+  color: #94a3b8;
+  padding-right: 20px;
+}
+
+.topDistricts-Name {
+  color: #94a3b8;
+  padding-right: 20px;
+}
+
+.topDistricts-list {
+  display: flex;
+  margin-right: 20px;
+}

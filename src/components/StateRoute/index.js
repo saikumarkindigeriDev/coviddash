@@ -229,7 +229,7 @@ class StateRoute extends Component {
     dataElement.sort((a, b) => b.districtValue - a.districtValue)
 
     const stateActiveCase = listOfDistrictName.map(eachItem => ({
-      districtName: eachItem,
+      districtNameList: eachItem,
       districtValue:
         listOfDistrict[eachItem].total.confirmed -
         (listOfDistrict[eachItem].total.recovered +
@@ -284,19 +284,22 @@ class StateRoute extends Component {
     return (
       <div className="stateRouter-column">
         <div className="state-tested-container">
-          <h1 className="stateRoute-heading stateRoute-heading-container">
-            {listStateName}
-          </h1>
-          <div>
+          <div className="state-name-date-container">
+            <h1 className="stateRoute-heading stateRoute-heading-container">
+              {listStateName}
+            </h1>
+
+            <p className="stateRoute-date">{`Last update on ${
+              months[stateDate.getMonth()]
+            } ${stateDate.getDate()} ${stateDate.getFullYear()}.`}</p>
+          </div>
+
+          <div className="tested-container">
             <p className="stateRoute-tested">Tested</p>
             <p className="stateRoute-total-tested">{totalTested}</p>
           </div>
         </div>
-        <div>
-          <p className="stateRoute-date">{`Last update on ${
-            months[stateDate.getMonth()]
-          } ${stateDate.getDate()} ${stateDate.getFullYear()}.`}</p>
-        </div>
+
         <div className="stateRoute-cards">
           <StateCards
             stateListCards={this.stateListCards}
@@ -351,7 +354,6 @@ class StateRoute extends Component {
           ) : (
             this.districtName()
           )}
-
           <Footer />
         </div>
       </>

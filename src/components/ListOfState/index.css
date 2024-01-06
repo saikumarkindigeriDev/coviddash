@@ -1,4 +1,42 @@
-.list-state-class {
+.state-result-heading {
   display: flex;
-  padding: 10px;
+}
+
+.state-confirmed {
+  color: #ff073a;
+  font-size: 14px;
+  padding-right: 40px;
+}
+
+.state-active {
+  color: #007bff;
+  font-size: 14px;
+  padding-right: 40px;
+}
+
+.state-recovered {
+  color: #28a745;
+  font-size: 14px;
+  padding-right: 40px;
+}
+
+.state-deceased {
+  color: #6c757d;
+  font-size: 14px;
+  padding-right: 40px;
+}
+
+.state-population {
+  color: #94a3b8;
+  font-size: 14px;
+  padding-right: 40px;
+}
+
+.state-name-class {
+  color: white;
+  font-size: 14px;
+  padding-right: 40px;
+  width: 250px;
+
+  text-align: left;
 }
