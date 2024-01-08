@@ -181,7 +181,7 @@ class HomeRoute extends Component {
     const response = await fetch(apiUrl, options)
     if (response.ok) {
       const data = await response.json()
-      console.log(data)
+
       let confirmedCase = 0
       let recoveredCase = 0
       let deceasedCase = 0
@@ -217,8 +217,7 @@ class HomeRoute extends Component {
           .filter(stateItem => stateItem === eachItem.state_code)
           .map(each => data[each].meta.population),
       }))
-      console.log(statesList)
-      console.log(listOfCovidTableStates)
+
       this.setState({
         totalConfirmed: confirmedCase,
         totalRecovered: recoveredCase,
