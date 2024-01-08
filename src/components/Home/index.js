@@ -4,7 +4,9 @@ import HomeRoute from '../HomeRoute'
 
 const Home = () => (
   <>
-    <Header />
+    <div className="header-container">
+      <Header />
+    </div>
     <HomeRoute />
 
     <Footer />

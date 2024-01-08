@@ -64,14 +64,20 @@ class StateCards extends Component {
 
   render() {
     const {confirmedCard, activeCard, recoveredCard, deceasedCard} = this.state
-    const {isStateCard} = this.props
-    const isDistrictCard = isStateCard ? 'background-color' : ''
+    const {isStateCard, category} = this.props
+    const highlightc =
+      category === 'Confirmed' ? 'background-color-confirmed' : ''
+    const highlighta = category === 'Active' ? 'background-color-active' : ''
+    const highlightr =
+      category === 'Recovered' ? 'background-color-recovered' : ''
+    const highlightd =
+      category === 'Deceased' ? 'background-color-deceased' : ''
 
     return (
       <>
         <ul className="stateCards-container">
           <li
-            className={`StateCard-background ${confirmedCard.name} ${isDistrictCard}`}
+            className={`StateCard-background ${confirmedCard.name} ${highlightc}`}
             tabIndex="-1"
             key={confirmedCard.name}
             value={confirmedCard.name}
@@ -88,7 +94,7 @@ class StateCards extends Component {
             </div>
           </li>
           <li
-            className={`StateCard-background ${activeCard.name} ${isDistrictCard}`}
+            className={`StateCard-background ${activeCard.name} ${highlighta}`}
             tabIndex="-1"
             key={activeCard.name}
             value={activeCard.name}
@@ -106,7 +112,7 @@ class StateCards extends Component {
           </li>
 
           <li
-            className={`StateCard-background ${recoveredCard.name} ${isDistrictCard}`}
+            className={`StateCard-background ${recoveredCard.name} ${highlightr}  `}
             tabIndex="-1"
             key={recoveredCard.name}
             value={recoveredCard.name}
@@ -126,7 +132,7 @@ class StateCards extends Component {
           </li>
 
           <li
-            className={`StateCard-background ${deceasedCard.name} ${isDistrictCard}`}
+            className={`StateCard-background ${deceasedCard.name}  ${highlightd}`}
             tabIndex="-1"
             key={deceasedCard.name}
             value={deceasedCard.name}

@@ -285,9 +285,9 @@ class StateRoute extends Component {
       <div className="stateRouter-column">
         <div className="state-tested-container">
           <div className="state-name-date-container">
-            <h1 className="stateRoute-heading stateRoute-heading-container">
-              {listStateName}
-            </h1>
+            <div className="stateRoute-heading-container">
+              <h1 className="stateRoute-heading ">{listStateName}</h1>
+            </div>
 
             <p className="stateRoute-date">{`Last update on ${
               months[stateDate.getMonth()]
@@ -305,6 +305,7 @@ class StateRoute extends Component {
             stateListCards={this.stateListCards}
             totalStateCards={totalState}
             isStateCard={isStateCard}
+            category={category}
           />
         </div>
 

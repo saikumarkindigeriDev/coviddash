@@ -46,6 +46,9 @@
 
 .update-description {
   color: #94a3b8;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Roboto';
 }
 
 .vaccines-description {

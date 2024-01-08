@@ -1,9 +1,4 @@
-.background-color {
-}
-
 .StateCard-background {
-  background-color: transparent;
-
   width: 264px;
   height: 232px;
   border-radius: 12px;
@@ -11,6 +6,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
+}
+
+.background-color-confirmed {
+  background-color: #331427;
+}
+
+.background-color-active {
+  background-color: #132240;
+}
+
+.background-color-recovered {
+  background-color: #182829;
+}
+
+.background-color-deceased {
+  background-color: #212230;
 }
 
 .home-paragraph-heading {

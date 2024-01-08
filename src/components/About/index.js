@@ -22,7 +22,7 @@ class About extends Component {
       const data = await response.json()
       const aboutDataa = data.faq
       const factoidss = data.factoids
-      console.log(data)
+
       this.setState({isLoading: false, aboutData: aboutDataa, facts: factoidss})
     }
   }
@@ -31,23 +31,14 @@ class About extends Component {
     const {aboutData} = this.state
 
     return (
-      <div>
-        <div className="about-container">
-          <h1 className="heading">About</h1>
-          <p className="update-description"> {`Last Update on `}</p>
-          <p className="vaccines-description">
-            COVID-19 vaccines be ready for distribution
-          </p>
-        </div>
-        <ul className="questions-container">
-          {aboutData.map(eachData => (
-            <li className="question">
-              <h1 className="question-heading">{eachData.question}</h1>
-              <h3 className="question-answer">{eachData.answer}</h3>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="questions-container" data-testid="faqsUnorderedList">
+        {aboutData.map(eachData => (
+          <li className="question" key={`${eachData.question}`}>
+            <h1 className="question-heading">{eachData.question}</h1>
+            <h3 className="question-answer">{eachData.answer}</h3>
+          </li>
+        ))}
+      </ul>
     )
   }
 
@@ -58,7 +49,7 @@ class About extends Component {
         <h1 className="facts-heading">Facts</h1>
         <ul className="facts-list">
           {facts.map(each => (
-            <li className="fact">
+            <li className="fact" key={`${each.banner}`}>
               <p>{each.banner}</p>
             </li>
           ))}
@@ -76,12 +67,24 @@ class About extends Component {
 
         <div className="loader-container">
           {isLoading ? (
-            <div className="loading-class" data-testid="timelinesDataLoader">
+            <div className="loading-class" data-testid="aboutRouteLoader">
               <Loader type="Oval" color="#0A4FA0" height={50} width={50} />
             </div>
           ) : (
             <>
               <div className="background-container">
+                <div>
+                  <div className="about-container">
+                    <h1 className="heading">About</h1>
+                    <p className="update-description">
+                      {' '}
+                      Last update on march 28th 2021.
+                    </p>
+                    <p className="vaccines-description">
+                      COVID-19 vaccines be ready for distribution
+                    </p>
+                  </div>
+                </div>
                 {this.renderAboutData()}
                 {this.renderFacts()}
               </div>

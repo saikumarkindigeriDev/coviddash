@@ -278,7 +278,7 @@ class HomeRoute extends Component {
     return (
       <div className="state-table" data-testid="stateWiseCovidDataTable">
         <ul className="state-result-table">
-          <li className="state-result-heading">
+          <li className="state-result-heading ">
             <div className="state-ul-holder">
               <p className="home-table-state-paragraph">States/UT</p>
               {/* eslint-disable-next-line */}
@@ -307,8 +307,9 @@ class HomeRoute extends Component {
             <p className="general-column-title">Deceased </p>
             <p className="general-column-title">Population</p>
           </li>
-          <hr className="horizontal" />
-
+        </ul>
+        <hr width="100%" color="#475569" />
+        <ul className="state-result-table">
           {listOfCovidStates.map(eachItem => (
             <ListOfState key={eachItem.stateCode} stateList={eachItem} />
           ))}

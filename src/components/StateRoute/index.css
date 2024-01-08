@@ -4,6 +4,9 @@
   height: 100vh;
 }
 
+.stateRoute-heading-container {
+  width: 400px;
+}
 .state-name-date-container {
   display: flex;
   flex-direction: column;
@@ -12,7 +15,7 @@
 
 .stateRoute-heading {
   color: #0ea5e9;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 600;
   text-align: center;
 

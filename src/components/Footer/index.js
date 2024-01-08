@@ -1,3 +1,6 @@
+import {VscGithubAlt} from 'react-icons/vsc'
+import {FiInstagram} from 'react-icons/fi'
+import {FaTwitter} from 'react-icons/fa'
 import './index.css'
 
 const Footer = () => (
@@ -10,21 +13,10 @@ const Footer = () => (
       we stand with everyone fighting on the front lines
     </p>
     <div className="logos-container">
-      <img
-        className="logo"
-        src="https://res.cloudinary.com/dyjmh036b/image/upload/v1704003879/Vectora_coaenl.svg"
-        alt="github"
-      />
-      <img
-        className="logo"
-        src="https://res.cloudinary.com/dyjmh036b/image/upload/v1704004102/instagraminsta_klrbfo.svg"
-        alt="instagram"
-      />
-      <img
-        className="logo"
-        src="https://res.cloudinary.com/dyjmh036b/image/upload/v1704004092/Twitter_bird_logo_2012_1twitter_wxnlof.svg"
-        alt="twitter"
-      />
+      <VscGithubAlt size={40} color="#ffffff" className="logo" />
+
+      <FiInstagram size={40} color="#ffffff" className="logo" />
+      <FaTwitter size={40} color="#ffffff" className="logo" />
     </div>
   </div>
 )
