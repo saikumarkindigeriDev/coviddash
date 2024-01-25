@@ -64,7 +64,7 @@ class StateCards extends Component {
 
   render() {
     const {confirmedCard, activeCard, recoveredCard, deceasedCard} = this.state
-    const {isStateCard, category} = this.props
+    const {category} = this.props
     const highlightc =
       category === 'Confirmed' ? 'background-color-confirmed' : ''
     const highlighta = category === 'Active' ? 'background-color-active' : ''

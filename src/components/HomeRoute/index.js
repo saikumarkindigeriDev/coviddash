@@ -2,12 +2,20 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 
 import {FcGenericSortingAsc, FcGenericSortingDesc} from 'react-icons/fc'
+import {BsSearch} from 'react-icons/bs'
 import SearchState from '../SearchState'
 import ListOfState from '../ListOfState'
 
 // import SearchState from '../SearchState'
 
 import './index.css'
+
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN_PROGRESS',
+}
 
 const statesList = [
   {
@@ -158,7 +166,7 @@ const statesList = [
 
 class HomeRoute extends Component {
   state = {
-    isLoading: true,
+    apiStatus: apiStatusConstants.initial,
     searchInput: '',
     listOfSearchStates: [],
     listOfCovidStates: [],
@@ -173,6 +181,9 @@ class HomeRoute extends Component {
   }
 
   listOfCovidIndia = async () => {
+    this.setState({
+      apiStatus: apiStatusConstants.inProgress,
+    })
     const apiUrl = 'https://apis.ccbp.in/covid19-state-wise-data'
     const options = {
       method: 'GET',
@@ -223,8 +234,13 @@ class HomeRoute extends Component {
         totalRecovered: recoveredCase,
         totalDeceased: deceasedCase,
         totalActive: activeCase,
-        isLoading: false,
+        apiStatus: apiStatusConstants.success,
+
         listOfCovidStates: listOfCovidTableStates,
+      })
+    } else {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
       })
     }
   }
@@ -239,10 +255,6 @@ class HomeRoute extends Component {
       searchInput: event.target.value,
       listOfSearchStates: searchList,
     })
-  }
-
-  loadingFalse = () => {
-    this.setState({isLoading: false})
   }
 
   searchInputRemove = () => {
@@ -386,55 +398,83 @@ class HomeRoute extends Component {
     )
   }
 
-  render() {
-    const {isLoading, listOfSearchStates, searchInput} = this.state
+  renderLoadingView = () => (
+    <div className="homeRouteLoader" data-testid="homeRouteLoader">
+      <Loader type="Oval" color="#007BFF" height={50} width={50} />
+    </div>
+  )
+
+  renderSuccessView = () => {
+    const {listOfSearchStates, searchInput} = this.state
     const searchResult =
       listOfSearchStates.length === 0 ? '' : this.listOfSearch()
-
     return (
-      <div className="covid-home-container">
-        {isLoading ? (
-          <div className="loading-class" data-testid="homeRouteLoader">
-            <Loader type="Oval" color="#007BFF" height={50} width={50} />
-          </div>
-        ) : (
-          <>
-            <div className="home-search">
-              <div className="home-search-container">
-                {this.loadingFalse}
+      <>
+        <div className="home-search">
+          <div className="home-search-container">
+            {this.loadingFalse}
 
-                <div className="icon-container">
-                  <img
-                    src="https://res.cloudinary.com/dyjmh036b/image/upload/v1704291196/search_v9oc0r.svg"
-                    className="search-icon"
-                    alt="searchIcon"
-                  />
-                </div>
-
-                <input
-                  type="search"
-                  className="search-input"
-                  placeholder="Enter the State"
-                  onChange={this.searchInputList}
-                />
-              </div>
-              <div className="listOfStatesContainer">
-                {searchInput.length > 0 ? searchResult : ''}
-              </div>
+            <div className="icon-container">
+              <BsSearch className="search-icon" />
             </div>
 
-            {searchInput.length > 0 ? (
-              ''
-            ) : (
-              <div className="covid-lists">
-                {this.listOfCovidCards()}
-                {this.listOfStateTable()}
-              </div>
-            )}
-          </>
+            <input
+              type="search"
+              className="search-input"
+              placeholder="Enter the State"
+              onChange={this.searchInputList}
+            />
+          </div>
+          <div className="listOfStatesContainer">
+            {searchInput.length > 0 ? searchResult : ''}
+          </div>
+        </div>
+
+        {searchInput.length > 0 ? (
+          ''
+        ) : (
+          <div className="covid-lists">
+            {this.listOfCovidCards()}
+            {this.listOfStateTable()}
+          </div>
         )}
-      </div>
+      </>
     )
+  }
+
+  renderFailureView = () => (
+    <div className="products-error-view-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-products-error-view.png"
+        alt="all-products-error"
+        className="products-failure-img"
+      />
+      <h1 className="product-failure-heading-text">
+        Oops! Something Went Wrong
+      </h1>
+      <p className="products-failure-description">
+        We are having some trouble processing your request. Please try again.
+      </p>
+    </div>
+  )
+
+  renderView = () => {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderSuccessView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
+  }
+
+  render() {
+    return <div className="covid-home-container">{this.renderView()}</div>
   }
 }
 
