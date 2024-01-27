@@ -54,3 +54,14 @@
 
 .sai {
 }
+
+@media screen and (max-width: 556px) {
+  .stateCards-container {
+    flex-wrap: wrap;
+  }
+
+  .StateCard-background {
+    width: 148px;
+    height: 148px;
+  }
+}

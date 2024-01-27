@@ -121,3 +121,18 @@
   border: none;
   margin-right: 12px;
 }
+
+@media screen and (max-width: 556px) {
+  .card-list {
+    height: 148px;
+    width: 148px;
+  }
+
+  .state-table {
+    width: 839px;
+  }
+
+  .icon-container {
+    width: 312px;
+  }
+}

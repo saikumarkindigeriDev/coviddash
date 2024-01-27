@@ -74,3 +74,13 @@
   align-items: center;
   margin: 20px;
 }
+
+@media screen and (max-width: 556px) {
+  .charts-container {
+    width: 360px;
+  }
+
+  .charts-graph-list-margin {
+    width: 360px;
+  }
+}

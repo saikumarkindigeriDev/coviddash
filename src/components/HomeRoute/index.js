@@ -297,7 +297,7 @@ class HomeRoute extends Component {
                 type="button"
                 className="icon-button"
                 onClick={this.ascSortClicked}
-                data-testid="ascending-icon"
+                data-testid="ascendingSort"
               >
                 <FcGenericSortingAsc className="ascending-icon" />
               </button>
@@ -306,7 +306,7 @@ class HomeRoute extends Component {
                 type="button"
                 className="icon-button"
                 onClick={this.decSortClicked}
-                data-testid="descending-icon"
+                data-testid="descendingSort"
               >
                 <FcGenericSortingDesc className="ascending-icon" />
               </button>

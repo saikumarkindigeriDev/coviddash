@@ -58,6 +58,7 @@
 
   .menu-button {
     display: block;
+    background: transparent;
   }
 
   .nav-list {
@@ -80,9 +81,11 @@
     list-style-type: none;
     display: flex;
     justify-content: space-between;
+    background-color: #1e1e30;
   }
 
   .items-container {
     display: flex;
+    background-color: #1e1e30;
   }
 }

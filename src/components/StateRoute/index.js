@@ -332,10 +332,7 @@ class StateRoute extends Component {
             </div>
           </div>
         </div>
-        <div
-          className="stateRoute-chart-container"
-          data-testid="lineChartsContainer"
-        >
+        <div className="stateRoute-chart-container">
           <Charts districtsChart={category} districtCode={stateCode} />
         </div>
       </div>
